@@ -2,7 +2,6 @@ package com.kotlin.dagger
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.kotlin.dagger.di.CarHundaiModule
 import com.kotlin.dagger.di.DaggerCarComponet
 import javax.inject.Inject
 
@@ -18,14 +17,13 @@ class MainActivity : AppCompatActivity() {
     lateinit var carMusicPlayer: CarMusicPlayer
 
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         var carComponet = DaggerCarComponet.builder()
-            .carHundaiModule(CarHundaiModule("100000"))
+            .price("1000")
+            .colour("Red")
             .build()
         carComponet.inject(this) // This process is call Field injection
 //        var car = carComponet.getCar() // We can create the object like this

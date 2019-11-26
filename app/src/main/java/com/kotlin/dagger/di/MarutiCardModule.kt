@@ -2,12 +2,12 @@ package com.kotlin.dagger.di
 
 import com.kotlin.dagger.CarModel
 import com.kotlin.dagger.Maruti
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
 
 @Module
-class MarutiCardModule {
+abstract class MarutiCardModule {
 
-    @Provides
-    fun provideCarModel(): CarModel = Maruti()
+    @Binds
+    abstract fun bindCarModel(maruti: Maruti): CarModel
 }
